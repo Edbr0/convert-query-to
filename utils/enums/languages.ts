@@ -1,0 +1,22 @@
+export enum DatabaseEngines {
+    SQL = "sql",
+    BIGQUERY = "bigquery",
+    DB2 = "db2",
+    DB2I = "db2i",
+    HIVE = "hive",
+    MARIADB = "mariadb",
+    MYSQL = "mysql",
+    TIDB = "tidb",
+    N1QL = "n1ql",
+    PLSQL = "plsql",
+    POSTGRESQL = "postgresql",
+    REDSHIFT = "redshift",
+    SINGLESTOREDB = "singlestoredb",
+    SNOWFLAKE = "snowflake",
+    SPARK = "spark",
+    SQLITE = "sqlite",
+    TRANSACTSQL = "transactsql",
+    TRINO = "trino",
+    TSQL = "tsql",
+  }
+  
