@@ -14,35 +14,43 @@ export interface Response {
 }
 
 export default defineEventHandler(async (event): Promise<Response> => {
-  const body = await readBody<Request>(event);
+  try {
+    const body = await readBody<Request>(event);
 
-  if (!body.content || !body.queryLanguage) {
+    if (!body.content || !body.queryLanguage) {
+      return {
+        message: 'Invalid input',
+        success: false
+      };
+    }
+
+    const { content, queryLanguage } = body;
+
+    const promptValidateSql = validateSqlPrompt(content);
+
+    const sqlType = await fetchChatCompletion(promptValidateSql)
+
+    if (sqlType == 'undefined') {
+      return  {
+        message: 'Invalid input',
+        success: false
+      };
+    }
+
+    const prompt = converterPrompt(content, queryLanguage)
+
+    const response = await fetchChatCompletion(prompt)
+
     return {
-      message: 'Invalid input',
-      success: false
+      message: `Request success!`,
+      success: true,
+      data: response
+    };
+  } catch (error) {
+    console.error('Error in /api/converter:', error);
+    return {
+      message: 'Internal server error',
+      success: false,
     };
   }
-
-  const { content, queryLanguage } = body;
-
-  const promptValidateSql = validateSqlPrompt(content);
-
-  const sqlType = await fetchChatCompletion(promptValidateSql)
-
-  if (sqlType == 'undefined') {
-    return  {
-      message: 'Invalid input',
-      success: false
-    };
-  }
-
-  const prompt = converterPrompt(content, queryLanguage)
-
-  const response = await fetchChatCompletion(prompt)
-
-  return {
-    message: `Request success!`,
-    success: true,
-    data: response
-  };
 });
