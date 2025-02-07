@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   nitro: {
     preset: "vercel"
   },
+  ssr:true,
   runtimeConfig: {
     public: {
       API_BASE_URL: '/api' // Ou sua URL absoluta
