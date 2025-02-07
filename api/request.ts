@@ -11,7 +11,7 @@ export const converter = async (content: string, queryLanguage: string):Promise<
 
   try {
 
-    const { data, error } = await useFetch<Response>('/api/converter', {
+    const { data, error } = await useFetch<Response>('/converter', {
       method: 'POST',
       body: { content, queryLanguage },
     });

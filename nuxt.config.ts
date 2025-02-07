@@ -13,6 +13,11 @@ export default defineNuxtConfig({
   nitro: {
     preset: "vercel"
   },
+  runtimeConfig: {
+    public: {
+      API_BASE_URL: '/api' // Ou sua URL absoluta
+    }
+  },
   plugins:['~/plugins/prism.js'],
   modules: [
     'nuxtjs-naive-ui',
