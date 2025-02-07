@@ -13,11 +13,16 @@ export default defineNuxtConfig({
   nitro: {
     preset: "vercel"
   },
-  ssr:true,
   runtimeConfig: {
     public: {
       API_BASE_URL: '/api' // Ou sua URL absoluta
     }
+  },
+  routeRules: {
+    '/api/**': { isr: false } // Garante que a API seja tratada como uma rota dinâmica (SSR)
+  },
+  build: {
+    transpile: ['naive-ui'] // Caso esteja usando Naive UI
   },
   plugins:['~/plugins/prism.js'],
   modules: [
