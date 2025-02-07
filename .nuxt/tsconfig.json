@@ -5,6 +5,9 @@
       "nitropack/types": [
         "../node_modules/nitropack/types"
       ],
+      "nitropack/runtime": [
+        "../node_modules/nitropack/runtime"
+      ],
       "nitropack": [
         "../node_modules/nitropack"
       ],
@@ -40,6 +43,9 @@
       ],
       "nuxt": [
         "../node_modules/nuxt"
+      ],
+      "vite/client": [
+        "../node_modules/vite/client"
       ],
       "~": [
         ".."
@@ -77,12 +83,6 @@
       "public/*": [
         "../public/*"
       ],
-      "#build": [
-        "."
-      ],
-      "#build/*": [
-        "./*"
-      ],
       "#app": [
         "../node_modules/nuxt/dist/app"
       ],
@@ -99,10 +99,16 @@
         "./imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/95b2a06e-30e2-4279-b6e9-fbccc995aefc.json"
+        "./manifest/meta/f1b331e0-5992-4a23-9dbe-01c12ab4518e"
       ],
       "#components": [
         "./components"
+      ],
+      "#build": [
+        "."
+      ],
+      "#build/*": [
+        "./*"
       ]
     },
     "esModuleInterop": true,
@@ -157,6 +163,13 @@
     "../dist",
     "../node_modules",
     "../node_modules/nuxt/node_modules",
+    "../node_modules/nuxtjs-naive-ui/node_modules",
+    "../node_modules/@pinia/nuxt/node_modules",
+    "../node_modules/@unocss/nuxt/node_modules",
+    "../node_modules/unplugin-auto-import/node_modules",
+    "../node_modules/unplugin-vue-components/node_modules",
+    "../node_modules/@nuxt/devtools/node_modules",
+    "../node_modules/@nuxt/telemetry/node_modules",
     "../node_modules/nuxtjs-naive-ui/runtime/server",
     "../node_modules/nuxtjs-naive-ui/dist/runtime/server",
     "../node_modules/@pinia/nuxt/runtime/server",
@@ -171,6 +184,6 @@
     "../node_modules/@nuxt/devtools/dist/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
     "../node_modules/@nuxt/telemetry/dist/runtime/server",
-    "../.output"
+    "../.vercel/output"
   ]
 }
