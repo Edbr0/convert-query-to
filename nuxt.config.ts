@@ -10,7 +10,6 @@ export default defineNuxtConfig({
   components: true, // Para auto-importação de componentes
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  ssr: false,
   nitro: {
     preset: "vercel"
   },
@@ -20,7 +19,7 @@ export default defineNuxtConfig({
     }
   },
   routeRules: {
-    '/api/**': { isr: false } // Garante que a API seja tratada como uma rota dinâmica (SSR)
+    '/api/**': { ssr: true } // Garante que a API seja tratada como uma rota dinâmica (SSR)
   },
   build: {
     transpile: ['naive-ui'] // Caso esteja usando Naive UI
