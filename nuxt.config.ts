@@ -12,11 +12,12 @@ export default defineNuxtConfig({
   components: true, // Para auto-importação de componentes
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
+  ssr: false,
   build: {
     transpile: ['naive-ui'], // Caso esteja usando Naive UI
   },
   nitro: {
-    preset: 'netlify',
+    preset: 'vercel',
   },
   plugins:['~/plugins/prism.js'],
   modules: [
