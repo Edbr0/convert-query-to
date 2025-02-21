@@ -1,6 +1,9 @@
 import AutoImport from 'unplugin-auto-import/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
+import { promises as fs } from 'fs'
+import path from 'path'
+
 
 
 
@@ -25,9 +28,6 @@ export default defineNuxtConfig({
     },
     hooks: {
       'nitro:build:done': async (ctx) => {
-        const fs = await import('fs/promises')
-        const path = await import('path')
-
         const serverDir = path.join(ctx.options.output.dir, 'server')
         const oldFile = path.join(serverDir, 'client.manifest.mjs')
         const newFile = path.join(serverDir, 'client_manifest.mjs')
@@ -39,7 +39,7 @@ export default defineNuxtConfig({
           console.warn('⚠️ Could not rename client.manifest.mjs, skipping.')
         }
       }
-    },
+    }
   },
   plugins:['~/plugins/prism.js'],
   modules: [
