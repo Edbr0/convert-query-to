@@ -10,7 +10,6 @@ export default defineNuxtConfig({
   components: true, // Para auto-importação de componentes
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  ssr: false,
   runtimeConfig: {
     public: {
       API_BASE_URL: '/api' // Ou sua URL absoluta
