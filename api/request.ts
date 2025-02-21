@@ -1,5 +1,6 @@
 import { useFetch } from '#app';
-import type { Response } from '../server/api/converter.post'
+import { fetchChatCompletion } from '../service/groqCLoud'
+import { converterPrompt, validateSqlPrompt } from '../utils/prompts/prompts'
 
 
 export interface Converter {
@@ -11,23 +12,26 @@ export const converter = async (content: string, queryLanguage: string):Promise<
 
   try {
 
-    const { data, error } = await useFetch<Response>('/converter', {
-      method: 'POST',
-      body: { content, queryLanguage },
-    });
+    const promptValidateSql = validateSqlPrompt(content);
 
-    if (error.value) {
-      console.error('Erro na API:', error.value);
-      return {
-        status: false,
-        message: JSON.stringify(error.value)
-      }
-    } 
+    const sqlType = await fetchChatCompletion(promptValidateSql)
 
-    return  {
-      status: true,
-      message: data.value?.data
+    if (sqlType == 'undefined') {
+      return  {
+        message: 'Invalid input',
+        status: false
+      };
     }
+
+    const prompt = converterPrompt(content, queryLanguage)
+
+    const response = await fetchChatCompletion(prompt)
+
+    return {
+      message: response,
+      status: true,
+    };
+
   } catch (err) {
     console.error('Erro ao consumir API:', err);
     return  {
