@@ -27,9 +27,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@unocss/nuxt',
     'unplugin-auto-import',
-    'unplugin-vue-components',
-    '@nuxt/netlify'
-    ],
+    'unplugin-vue-components'    ],
   vite: {
     plugins: [
       AutoImport({
