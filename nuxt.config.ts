@@ -15,12 +15,13 @@ export default defineNuxtConfig({
       API_BASE_URL: '/api' // Ou sua URL absoluta
     }
   },
-  routeRules: {
-    '/api/**': { ssr: true } // Garante que a API seja tratada como uma rota dinâmica (SSR)
-  },
   build: {
     transpile: ['naive-ui'] // Caso esteja usando Naive UI
   },
+  app: {
+    baseURL: '/oracle-to-postgres/',
+    buildAssetsDir: 'assets'
+  },
   plugins:['~/plugins/prism.js'],
   modules: [
     'nuxtjs-naive-ui',
