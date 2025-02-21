@@ -1,4 +1,4 @@
 [build]
 command = "yarn run build"
-publish = ".nuxt/dist/client"
-functions = ".nuxt/dist/server"
+publish = ".nuxt/dist"
+functions = ".nuxt/dist"
