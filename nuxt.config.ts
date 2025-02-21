@@ -19,17 +19,17 @@ export default defineNuxtConfig({
   build: {
     transpile: ['naive-ui'], // Caso esteja usando Naive UI
   },
-  app: {
-    baseURL: '/oracle-to-postgres/',
-    buildAssetsDir: 'assets',
-  },
+  nitro: {
+    preset: 'netlify'
+  },
   plugins:['~/plugins/prism.js'],
   modules: [
     'nuxtjs-naive-ui',
     '@pinia/nuxt',
     '@unocss/nuxt',
     'unplugin-auto-import',
-    'unplugin-vue-components'
+    'unplugin-vue-components',
+    '@nuxt/netlify'
     ],
   vite: {
     plugins: [
