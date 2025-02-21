@@ -19,7 +19,27 @@ export default defineNuxtConfig({
     transpile: ['naive-ui'], // Caso esteja usando Naive UI
   },
   nitro: {
-    preset: 'netlify'
+    preset: 'netlify',
+    output: {
+      dir: '.output'
+    },
+    hooks: {
+      'nitro:build:done': async (ctx) => {
+        const fs = await import('fs/promises')
+        const path = await import('path')
+
+        const serverDir = path.join(ctx.options.output.dir, 'server')
+        const oldFile = path.join(serverDir, 'client.manifest.mjs')
+        const newFile = path.join(serverDir, 'client_manifest.mjs')
+
+        try {
+          await fs.rename(oldFile, newFile)
+          console.log('✅ Renamed client.manifest.mjs to client_manifest.mjs')
+        } catch (error) {
+          console.warn('⚠️ Could not rename client.manifest.mjs, skipping.')
+        }
+      }
+    },
   },
   plugins:['~/plugins/prism.js'],
   modules: [
