@@ -1,75 +1,46 @@
-# Nuxt Minimal Starter
+# Convert Query To
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Sobre o Projeto
 
-## Setup
+**Convert Query To** é uma aplicação desenvolvida para facilitar a conversão de queries SQL entre diferentes bancos de dados. Com uma interface intuitiva e um design moderno, a ferramenta permite que os usuários insiram sua query SQL e escolham para qual sistema desejam convertê-la.
 
-Make sure to install dependencies:
+## Funcionalidades
+- Inserção de queries SQL
+- Seleção do banco de dados de destino
+- Conversão automática da query
+- Interface escura e moderna para melhor experiência do usuário
 
-```bash
-# npm
-npm install
+## Demonstração
+Abaixo está uma captura de tela da aplicação em funcionamento:
 
-# pnpm
-pnpm install
+![Demonstração da Aplicação](image.png)
 
-# yarn
-yarn install
+## Como Executar
+1. Clone este repositório:
+   ```sh
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   ```
+2. Acesse o diretório do projeto:
+   ```sh
+   cd seu-repositorio
+   ```
+3. Instale as dependências:
+   ```sh
+   npm install
+   ```
+4. Inicie a aplicação:
+   ```sh
+   npm start
+   ```
 
-# bun
-bun install
-```
+## Tecnologias Utilizadas
+- Node.js
+- React/Nuxt.js (dependendo do seu frontend)
+- Tailwind CSS (ou outra biblioteca de estilos que esteja utilizando)
 
-## Development Server
+## Contribuição
+Contribuições são bem-vindas! Sinta-se à vontade para abrir um issue ou enviar um pull request.
 
-Start the development server on `http://localhost:3000`:
+## Licença
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
