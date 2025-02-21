@@ -13,7 +13,7 @@
 ## Demonstração
 Abaixo está uma captura de tela da aplicação em funcionamento:
 
-![Demonstração da Aplicação](image.png)
+![Demonstração da Aplicação](public/demo.png)
 
 ## Como Executar
 1. Clone este repositório:
